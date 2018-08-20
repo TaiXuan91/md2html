@@ -34,3 +34,7 @@ node md2html.js a.md b.md ccc -o result
 ```
 
 There will be a directory named "result" containing compiled files.
+
+## Todo
+
+* [ ] Automatically generate index of compiled files.
