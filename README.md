@@ -8,6 +8,7 @@ Based on javascript (nodejs) and:
 * highlight.js
 * katex
 * markdown-it-texmath
+* command-line-parser
 
 Usage:
 
