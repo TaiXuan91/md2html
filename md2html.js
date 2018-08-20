@@ -121,8 +121,9 @@ for(var index in markdownFiles){
   var result=clipTmpl(md.render(tempFile.toString()))
   var fileNewName=markdownFiles[index].replace(/.md$/,'.html')
   // lint fileNewName
-  fileNewName=fileNewName.replace('\\','')
   fileNewName=fileNewName.replace(/^\./,'')
+  fileNewName=fileNewName.replace(/^\\/,'')
+  fileNewName=fileNewName.replace(/\\/g,'_')
   var savePath=outputPath+fileNewName
   fs.writeFile(savePath,result,function(err){
     if(err){
@@ -130,3 +131,31 @@ for(var index in markdownFiles){
     }
   })
 }
+
+// Generate index file
+var indexFile='';
+const indexLine = (fileName) => `* [${fileName}](${fileName}.html)\n`;
+indexFile+='# Index\n\n';
+for(var index in markdownFiles){
+  var fileNewName=markdownFiles[index].replace(/.md$/,'')
+  // lint fileNewName
+  fileNewName=fileNewName.replace(/^\./,'')
+  fileNewName=fileNewName.replace(/^\\/,'')
+  fileNewName=fileNewName.replace(/\\/g,'_')
+  indexFile+=indexLine(fileNewName)
+}
+
+// Output index markdown for debug.
+fs.writeFile(outputPath+'_index.md',indexFile,function(err){
+  if(err){
+  console.log(err);
+  }
+})
+
+// Compile index file
+var resultIndex=clipTmpl(md.render(indexFile))
+fs.writeFile(outputPath+'_index.html',resultIndex,function(err){
+  if(err){
+  console.log(err);
+  }
+})

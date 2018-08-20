@@ -37,4 +37,7 @@ There will be a directory named "result" containing compiled files.
 
 ## Todo
 
-* [ ] Automatically generate index of compiled files.
+* [X] ~~*Automatically generate index of compiled files.*~~ [2018-08-20]
+* [ ] Recursive search directories.
+* [ ] Keep directory structure.
+* [ ] Copying non-md files such as images. (Let the image still display in html.)
