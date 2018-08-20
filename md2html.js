@@ -146,7 +146,7 @@ for(var index in markdownFiles){
 }
 
 // Output index markdown for debug.
-fs.writeFile(outputPath+'_index.md',indexFile,function(err){
+fs.writeFile(outputPath+'index.md',indexFile,function(err){
   if(err){
   console.log(err);
   }
@@ -154,7 +154,7 @@ fs.writeFile(outputPath+'_index.md',indexFile,function(err){
 
 // Compile index file
 var resultIndex=clipTmpl(md.render(indexFile))
-fs.writeFile(outputPath+'_index.html',resultIndex,function(err){
+fs.writeFile(outputPath+'index.html',resultIndex,function(err){
   if(err){
   console.log(err);
   }
