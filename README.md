@@ -42,3 +42,4 @@ There will be a directory named "result" containing compiled files.
 * [ ] Recursive search directories.
 * [ ] Keep directory structure.
 * [ ] Copying non-md files such as images. (Let the image still display in html.)
+* [ ] mermaid
